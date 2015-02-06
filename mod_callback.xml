@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.1"
+	client="site"
+	method="upgrade">
+	<name>mod_callback</name>
+	<author>Patrick Klostermeier</author>
+	<creationDate>February 2015</creationDate>
+	<copyright>Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>kontakt@patrick-klostermeier.de</authorEmail>
+	<version>3.0.0</version>
+	<description>MOD_CALLBACK_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_callback">mod_callback.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_callback.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_callback.ini</language>
+		<language tag="en-GB">en-GB.mod_callback.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_BREADCRUMBS" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="spacer" label="MODAL_FIELDS_SPACER" />
+
+				<field
+						name="modalid"
+						type="text"
+						default="callback-modal1"
+						label="MOD_CALLBACK_FIELD_MODALID_LABEL"
+						description="MOD_CALLBACK_FIELD_MODALID_DESC"
+						/>
+
+				<field
+						name="modaltitle"
+						type="text"
+						label="MOD_CALLBACK_FIELD_MODALTITLE_LABEL"
+						description="MOD_CALLBACK_FIELD_MODALTITLE_DESC"
+						/>
+
+				<field type="spacer" label="EMAIL_FIELDS_SPACER" />
+
+				<field
+						name="mailsender"
+						type="text"
+						label="MOD_CALLBACK_FIELD_MAILSENDER_LABEL"
+						description="MOD_CALLBACK_FIELD_MAILSENDER_DESC"
+						/>
+				<field
+						name="recipient"
+						type="text"
+						label="MOD_CALLBACK_FIELD_RECIPIENT_LABEL"
+						description="MOD_CALLBACK_FIELD_RECIPIENT_DESC"
+						/>
+				<field
+						name="emailsubject"
+						type="text"
+						label="MOD_CALLBACK_FIELD_SUBJECT_LABEL"
+						description="MOD_CALLBACK_FIELD_SUBJECT_DESC"
+						/>
+
+				<field
+						name="emailfrom"
+						type="text"
+						label="MOD_CALLBACK_FIELD_MAILFROM_LABEL"
+						description="MOD_CALLBACK_FIELD_MAILFROM_DESC"
+						/>
+				<field
+						name="linktext"
+						type="text"
+						label="MOD_CALLBACK_FIELD_LINKTEXT_LABEL"
+						description="MOD_CALLBACK_FIELD_LINKTEXT_DESC"
+						/>
+				<field type="spacer" label="FORM_FIELDS_SPACER" />
+
+				<field
+						name="labelname"
+						type="text"
+						default="Name:"
+						label="MOD_CALLBACK_FIELD_LABELNAME_LABEL"
+						description="MOD_CALLBACK_FIELD_LABELNAME_DESC"
+						/>
+
+				<field
+						name="placeholdername"
+						type="text"
+						default="Your full name"
+						label="MOD_CALLBACK_FIELD_PLACEHOLDERNAME_LABEL"
+						description="MOD_CALLBACK_FIELD_PLACEHOLDERNAME_DESC"
+						/>
+
+				<field
+						name="labelnumber"
+						type="text"
+						default="Number:"
+						label="MOD_CALLBACK_FIELD_LABELNUMBER_LABEL"
+						description="MOD_CALLBACK_FIELD_LABELNUMBER_DESC"
+						/>
+
+				<field
+						name="placeholdernumber"
+						type="text"
+						default="Your phone number"
+						label="MOD_CALLBACK_FIELD_PLACEHOLDERNUMBER_LABEL"
+						description="MOD_CALLBACK_FIELD_PLACEHOLDERNUMBER_DESC"
+						/>
+
+				<field
+						name="labelmessage"
+						type="text"
+						default="Message:"
+						label="MOD_CALLBACK_FIELD_LABELMESSAGE_LABEL"
+						description="MOD_CALLBACK_FIELD_LABELMESSAGE_DESC"
+						/>
+
+				<field
+						name="placeholdermessage"
+						type="text"
+						default="Your message"
+						label="MOD_CALLBACK_FIELD_PLACEHOLDERMESSAGE_LABEL"
+						description="MOD_CALLBACK_FIELD_PLACEHOLDERMESSAGE_DESC"
+						/>
+
+				<field
+						name="buttontext"
+						type="text"
+						default="Submit"
+						label="MOD_CALLBACK_FIELD_BUTTONTEXT_LABEL"
+						description="MOD_CALLBACK_FIELD_BUTTONTEXT_DESC"
+						/>
+
+
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
