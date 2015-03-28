@@ -35,7 +35,7 @@ JHtmlBehavior::core();
 						</div>
 						<?php if ($enabledCaptcha = 1) : ?>
 							<div class="form-group">
-								<?php $captchaField->display('irgendwas', 'replace-captcha'); ?>
+								<?php echo $captchaField->display('irgendwas', 'replace-captcha'); ?>
 							</div>
 						<?php endif; ?>
 						<div>
