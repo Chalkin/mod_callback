@@ -19,7 +19,7 @@ JHtmlBehavior::core();
 					<h4 class="modal-title"><?php echo $modaltitle; ?></h4>
 				</div>
 
-				<div class="modal-body">
+				<div class="modal-body"> <!-- action="index.php?option=com_ajax&module=callback&format=json" -->
 					<form id="callbackForm" class="callbackform-horizontal" method="post" role="form" action="index.php?option=com_ajax&module=callback&format=json">
 						<div class="form-group">
 							<label for="callback-fullname"><?php echo $labelname; ?></label>
@@ -33,6 +33,11 @@ JHtmlBehavior::core();
 							<label for="callback-message"><?php echo $labelmessage; ?></label>
 							<textarea id="callback-message" class="form-control message" rows="3" name="message" placeholder="<?php echo $placeholdermessage; ?>"></textarea>
 						</div>
+						<?php if ($enabledCaptcha) : ?>
+							<div class="form-group">
+								<?php $captchaField->display('irgendwas', 'replace-captcha'); ?>
+							</div>
+						<?php endif; ?>
 						<div>
 							<small>* Pflichtfelder</small>
 						</div>

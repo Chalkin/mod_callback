@@ -2,10 +2,16 @@
 
 defined('_JEXEC') or die;
 
+JPluginHelper::importPlugin('captcha');
 
 class ModCallbackHelper
 {
-	public static function getAjax()
+	/**
+	 * Handling the Ajax response coming from com_ajax
+	 *
+	 * @author <kontakt@patrick-klostermeier.de> Patrick Klostermeier
+	 */
+	public function getAjax()
 	{
 		jimport('joomla.application.module.helper');
 		$module = JModuleHelper::getModule('mod_callback');
@@ -13,8 +19,7 @@ class ModCallbackHelper
 		$params->loadString($module->params);
 
 		$app   = JFactory::getApplication();
-		$input = JFactory::getApplication()->input;
-		$data  = $input->post->getArray();
+		$data  = $app->input->post->getArray();
 
 		// Load language
 		$app->getLanguage()->load('mod_callback');
@@ -43,13 +48,39 @@ class ModCallbackHelper
 		if (true == $sent)
 		{
 			http_response_code(200);
-			echo json_encode(array('success' => true, 'error' => false, 'messages' => array(JText::_('MOD_CALLBACK_AJAX_MSG_SUCCESS'))));
+			echo json_encode(array('success' => true, 'error' => false, 'message' => JText::_('MOD_CALLBACK_AJAX_MSG_SUCCESS')));
 			die();
 		}
 		else
 		{
-			echo json_encode(array('success' => false, 'error' => true, 'messages' => array(JText::_('MOD_CALLBACK_AJAX_MSG_ERROR'))));
+			echo json_encode(array('success' => false, 'error' => true, 'message' => JText::_('MOD_CALLBACK_AJAX_MSG_ERROR')));
 			die();
 		}
+	}
+
+	public function validateCaptchaAjax()
+	{
+		// Validate captcha code
+		$dispatcher = JEventDispatcher::getInstance();
+		$isValid    = $dispatcher->trigger('onCheckAnswer', 'irgendwas is egal');
+
+		// Return ajax response
+		http_response_code(200);
+		echo json_encode(array(
+			'valid'   => $isValid[0],
+			'message' => $isValid[0] ? null : 'Hey, the captcha is wrong!',
+		));
+		die();
+	}
+
+	/**
+	 * Init the Captcha Module if required
+	 *
+	 * @author <kontakt@patrick-klostermeier.de> Patrick Klostermeier
+	 */
+	public static function initCaptcha()
+	{
+		$dispatcher = JEventDispatcher::getInstance();
+		$dispatcher->trigger('onInit', 'callback_recaptcha');
 	}
 }
