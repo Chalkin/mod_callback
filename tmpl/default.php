@@ -33,7 +33,7 @@ JHtmlBehavior::core();
 							<label for="callback-message"><?php echo $labelmessage; ?></label>
 							<textarea id="callback-message" class="form-control message" rows="3" name="message" placeholder="<?php echo $placeholdermessage; ?>"></textarea>
 						</div>
-						<?php if ($enabledCaptcha) : ?>
+						<?php if ($enabledCaptcha = 1) : ?>
 							<div class="form-group">
 								<?php $captchaField->display('irgendwas', 'replace-captcha'); ?>
 							</div>
