@@ -8,7 +8,7 @@
             $(id).appendTo("body").modal('show');
         });
 
-        $('#callbackForm').formValidation({
+       /* $('#callbackForm').formValidation({
             framework: 'bootstrap',
             live: 'enabled',
             icon: {
@@ -89,6 +89,6 @@
                     }
                 }
             });
-        });
+        });*/
     });
 })(jQuery);
