@@ -28,8 +28,7 @@ $placeholdermessage = $params->get('placeholdermessage');
 $enabledCaptcha     = 0;
 
 
-$jconfig = new JConfig();
-$captcha = $jconfig->captcha;
+$captcha = JFactory::getConfig()->get('captcha');
 
 $captchaField = JCaptcha::getInstance($captcha);
 
